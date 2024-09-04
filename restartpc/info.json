@@ -1,0 +1,10 @@
+{
+    "name": "RestartPC",
+    "author": ["Last Roze"],
+    "description": "A cog to restart the server's PC, usable only by the server owner.",
+    "short": "Restart the PC",
+    "requirements": [],
+    "tags": ["utility", "system"],
+    "min_bot_version": "3.4.6",
+    "end_user_data_statement": "This cog does not store any end user data."
+}
