@@ -19,7 +19,7 @@ class GPT(commands.Cog):
             "temperature": 0.7,
             "log_channel_id": 0,        # set with [p]gptset log
             "allowed_channel_ids": []   # empty => allowed everywhere
-+       }
+        }
         self.config.register_global(**default_global)
         self.session: Optional[aiohttp.ClientSession] = None
         
@@ -368,4 +368,5 @@ class GPT(commands.Cog):
             channels_text = "All channels allowed"
         embed.add_field(name="Allowed Channels", value=channels_text, inline=False)
         
+
         await ctx.send(embed=embed)
