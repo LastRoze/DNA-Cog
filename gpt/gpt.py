@@ -113,7 +113,7 @@ class GPT(commands.Cog):
                     "https://api.openai.com/v1/chat/completions",
                     headers=headers,
                     json=payload,
-                    timeout=aiohttp.ClientTimeout(total=30)
+                    timeout=aiohttp.ClientTimeout(total=120)
                 ) as response:
                     
                     if response.status != 200:
@@ -162,20 +162,18 @@ class GPT(commands.Cog):
                             # Send chunks
                             for i, chunk in enumerate(chunks):
                                 embed = discord.Embed(
-                                    title=f"💬 ChatGPT Response (Part {i+1}/{len(chunks)})",
                                     description=f"```markdown\n{chunk.strip()}\n```",
-                                    color=discord.Color.green()
+                                    color=ctx.author.color
                                 )
                                 if i == 0:
-                                    embed.set_footer(text=f"Question by {ctx.author.name}")
+                                    embed.set_footer(text=f"Question by {ctx.author.display_name}",icon_url=ctx.author.display_avatar.url)
                                 await ctx.send(embed=embed)
                         else:
                             embed = discord.Embed(
-                                title="💬 ChatGPT Response",
                                 description=f"```markdown\n{answer}\n```",
-                                color=discord.Color.green()
+                                color=ctx.author.color
                             )
-                            embed.set_footer(text=f"Question by {ctx.author.name}")
+                            embed.set_footer(text=f"Question by {ctx.author.display_name}",icon_url=ctx.author.display_avatar.url)
                             await ctx.send(embed=embed)
                     else:
                         error_msg = "No choices in API response"
@@ -368,5 +366,4 @@ class GPT(commands.Cog):
             channels_text = "All channels allowed"
         embed.add_field(name="Allowed Channels", value=channels_text, inline=False)
         
-
         await ctx.send(embed=embed)
