@@ -1,0 +1,10 @@
+{
+    "AUTHOR" : "LastRoze",
+    "INSTALL_MSG" : "Thank you for installing GPT!",
+    "NAME" : "gpt",
+    "SHORT" : "GPT",
+    "DESCRIPTION" : "Chat with GPT",
+    "TAGS" : ["gpt", "chat"],
+    "REQUIREMENTS" : [],
+    "HIDDEN" : false
+}
